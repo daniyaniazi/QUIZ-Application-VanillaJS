@@ -44,9 +44,14 @@ startGame = () => {
     console.log(AvailableQuestions);
     getNewQuestion();
 };
+
+
+
+
+// NEW QUESTION GET
 getNewQuestion = () => {
     if (AvailableQuestions.length === 0 || quesCounter >= maxQuestion) {
-        return window.location.assign('end.html')
+        return window.location.assign('game.html')
     }
     quesCounter++;
     const questionIndex = Math.floor(Math.random() * AvailableQuestions.length);
@@ -63,16 +68,37 @@ getNewQuestion = () => {
 };
 
 
+
+// GETTING ANSWERS
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
-        console.log(e.target);
+        console.log(e.target, 'here');
         console.log('clicked');
+        console.log(choice);
         if (!acceptingAnswer) return;
         acceptingAnswer = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
 
-        getNewQuestion();
+
+        // ADDING CLASSES FOR CORRECT ANSWER
+        // console.log(selectedAnswer == currentQues.correctAnswer);
+        let classToApply = 'choice bg-danger  text-left rounded d-flex  mb-4';
+        if (selectedAnswer == currentQues.correctAnswer) {
+            classToApply = 'choice bg-success  text-left rounded d-flex  mb-4'
+        }
+        // console.log(classToApply)
+        choice.parentElement.className = classToApply;
+
+
+
+        // REMOVE CLASSES AND CALL OUR NEXT QUESTION
+        setTimeout(() => {
+            choice.parentElement.className = 'choice bg-light  text-left rounded d-flex  mb-4';
+
+            getNewQuestion();
+        }, 1000);
+
     });
 });
 startGame();
