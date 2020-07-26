@@ -9,6 +9,9 @@ let acceptingAnswer = false;
 let score = 0;
 let quesCounter = 0;
 let AvailableQuestions = [];
+const questionCounterhtml = document.getElementById('questioncounter');
+const scorehtml = document.getElementById('score');
+let num = 10;
 
 let questions = [{
         question: "Who invented JavaScript?",
@@ -36,7 +39,7 @@ let questions = [{
 
 // CONSTANT
 const maxQuestion = 3;
-const correctBonus = 10;
+// const correctBonus = 10;
 startGame = () => {
     quesCounter = 0;
     score = 0;
@@ -51,9 +54,10 @@ startGame = () => {
 // NEW QUESTION GET
 getNewQuestion = () => {
     if (AvailableQuestions.length === 0 || quesCounter >= maxQuestion) {
-        return window.location.assign('game.html')
+        return window.location.assign('end.html')
     }
     quesCounter++;
+    questionCounterhtml.innerText = `${quesCounter}/${maxQuestion}`
     const questionIndex = Math.floor(Math.random() * AvailableQuestions.length);
     currentQues = AvailableQuestions[questionIndex];
     question.innerText = currentQues.question;
@@ -86,6 +90,7 @@ choices.forEach(choice => {
         let classToApply = 'choice bg-danger  text-left rounded d-flex  mb-4';
         if (selectedAnswer == currentQues.correctAnswer) {
             classToApply = 'choice bg-success  text-left rounded d-flex  mb-4'
+            incrementScore();
         }
         // console.log(classToApply)
         choice.parentElement.className = classToApply;
@@ -102,3 +107,8 @@ choices.forEach(choice => {
     });
 });
 startGame();
+incrementScore = () => {
+    score += num;
+    scorehtml.innerText = score;
+}
+scorehtml.innerText = score;

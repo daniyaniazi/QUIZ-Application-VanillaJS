@@ -18,12 +18,13 @@
         }
         
         .row {
-            height: 100vh !important;
+            height: 97vh !important;
         }
         
         .choice:hover {
             box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 236, 0.5);
-            transform: translateY(-0.035rem);
+            transform: translateY(-0.02rem);
+            transition: all 0.1s;
         }
         /* .w-10 {
             width: 10%;
@@ -33,20 +34,40 @@
 </head>
 
 <body class="colormain">
-    <div class="row align-items-center vh-100  vw-100 justify-content-center text-center">
+    <div class="row align-items-center vh-100  vw-100 justify-content-center text-center border-box">
         <div class="container">
+            <div id="game">
+                <div id="hud" class="container-fluid d-flex  justify-content-between text-primary ">
+                    <div id="hud-item col-xm-6">
+                        <h6 class="hud-prefix">
+                            Question
+                        </h6>
+                        <h1 class="hud-main-text" id="questioncounter">
+
+                        </h1>
+                    </div>
+                    <div id="hud-item col-xm-6">
+                        <h6 class="hud-prefix">
+                            Score
+                        </h6>
+                        <h1 class="hud-main-text" id="score">
+
+                        </h1>
+                    </div>
+                </div>
+            </div>
             <h5 class="text-left" id="question">What is the answer to this question?</h5>
 
-            <div class="choice-container d-block my-5 ">
-                <div class="choice bg-light  text-left rounded d-flex mb-4">
+            <div class="choice-container d-block my-5  border-box">
+                <div class="choice bg-light  text-left rounded d-flex mb-4 border-box">
                     <div class="col-xs-4 bg-primary rounded p-3 ">A</div>
                     <div class="col-md-8 p-3 choice-text w-100 " data-number="1">option 1</div>
                 </div>
-                <div class="choice bg-light  text-left rounded d-flex  mb-4">
+                <div class="choice bg-light  text-left rounded d-flex  mb-4 border-box">
                     <div class="col-xs-4 bg-primary rounded p-3 ">B</div>
                     <div class="col-md-8  w-100  p-3 choice-text" data-number="2">option 2</div>
                 </div>
-                <div class="choice bg-light  text-left rounded d-flex  mb-4 ">
+                <div class="choice bg-light  text-left rounded d-flex  mb-4  border-box">
                     <div class="col-xs-4 bg-primary rounded p-3 ">C</div>
                     <div class="col-md-8 w-100 p-3 choice-text" data-number="3">option 3</div>
                 </div>
