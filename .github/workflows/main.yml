@@ -31,4 +31,4 @@ jobs:
     - name: Install Surge
       run: npm install --global surge
     - name: Run Surge
-      run: surge ./ quizjsdaniya.surge.sh --token ${{secrets.SURGE-TOKEN}}
+      run: surge ./ quizjsdaniya.surge.sh --token ${{secrets.QUIZTOKEN}}
