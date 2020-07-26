@@ -20,6 +20,18 @@
         .row {
             height: 100vh !important;
         }
+        
+        @media screen and (max-width:400px) {
+            .buttons {
+                width: 50% !important;
+            }
+        }
+        
+        @media screen and (max-width:300px) {
+            .buttons {
+                width: 80% !important;
+            }
+        }
     </style>
     <title>Quiz</title>
 </head>
@@ -32,7 +44,7 @@
                     Quick Quiz
                 </h1>
 
-                <div class="w-25 mx-auto mt-4">
+                <div class="w-25 mx-auto mt-4 buttons">
                     <a class="btn btn-outline-primary btn-block bg-light " href="game.html">Play</a>
                     <a class="btn btn-outline-primary   btn-block bg-light" href="/highscore.html">HighScore</a>
                 </div>
